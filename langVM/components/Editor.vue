@@ -5,8 +5,8 @@
 <script>
 export default {
   mounted() {
-    const editor = ace.edit("ace");
-    editor.setOptions({
+    this.$langVM.srcEditor = ace.edit("ace");
+    this.$langVM.srcEditor.setOptions({
       theme: "ace/theme/tomorrow_night",
       mode: "ace/mode/javascript",
       printMargin: false,
@@ -14,7 +14,7 @@ export default {
       scrollPastEnd: 1,
       fontSize: 12,
     });
-    editor.setValue("function abc() {\n    return null\n}");
+    this.$langVM.srcEditor.setValue("function abc() {\n    return null\n}");
   },
 };
 </script>

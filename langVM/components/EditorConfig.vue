@@ -2,7 +2,7 @@
   <div class="editorConfig">
     <ul class="configList">
       <li class="configList__item">
-        <button class="play">
+        <button class="play" @click="run">
             <PlayIcon class="play__icon" />
         </button>
       </li>
@@ -21,10 +21,21 @@
 
 <script>
 import PlayIcon from "@/assets/svg/play.svg?inline";
+import $ from "jquery";
 
 export default {
   components: {
     PlayIcon,
+  },
+  methods: {
+    async run() {
+      const response = await this.$langVM.run({
+        lang: "javascript",
+        src: this.$langVM.srcEditor.getValue(),
+        stdin: this.$langVM.stdinEditor.getValue(),
+      })
+      console.log(response)
+    },
   },
 };
 </script>

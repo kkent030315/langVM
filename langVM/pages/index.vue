@@ -5,6 +5,7 @@
       <div class="editorContext">
         <Editor />
       </div>
+      <EditorStdIn />
     </div>
     <div class="editorSection">
       <OutputLogs />
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style lang="scss">

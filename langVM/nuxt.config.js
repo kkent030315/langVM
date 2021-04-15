@@ -26,7 +26,7 @@ export default {
   css: ["ress", { src: "~/assets/sass/app.scss", lang: "scss" }],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["@/plugins/app.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -40,6 +40,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/style-resources",
     "@ncviewer/ace-editor-module",
+    "@nuxtjs/proxy"
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -47,5 +48,13 @@ export default {
 
   styleResources: {
     scss: ["~/assets/sass/variables.scss", "~/assets/sass/mixins.scss"]
+  },
+
+  proxy: {
+    "/api/": {
+      target: "https://paiza.io/",
+      changeOrigin: true,
+      secure: false
+    }
   }
 };
